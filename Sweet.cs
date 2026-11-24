@@ -26,35 +26,4 @@ namespace lab5csharp
 
         public abstract string GetBriefInfo();
     }
-
-    public class Candy : Sweet
-    {
-        public Candy(string name, double weight, int sugar, int calories) : base(name, weight, sugar, calories) { } 
-        
-        public override string GetFullDescription()
-        {
-            return $"=> Конфета «{Name}» | Масса: {Weight} г | Энергетическая ценность: {calories} ккал | Сахар: {sugar} г";
-        }
-
-        public override string GetBriefInfo()
-        {
-            return $"- {Name} ({Weight} г)\n";
-        }
-    }
-
-    public class OtherSweet : Sweet
-    {
-        string Category;
-        public OtherSweet(string name, double weight, int sugar, int calories, string Category) : base(name, weight, sugar, calories) { this.Category = Category; }
-
-        public override string GetFullDescription()
-        {
-            return $"=> Сладость «{Name}» [{Category}] | Масса: {Weight} г | Энергетическая ценность: {calories} ккал | Сахар: {sugar} г";
-        }
-
-        public override string GetBriefInfo()
-        {
-            return $"- {Name} [{Category}] ({Weight} г)\n";
-        }
-    }
 }

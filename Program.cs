@@ -11,7 +11,7 @@ namespace lab5csharp
 
             gift.AddDirectly(new Candy("Сникерс", 50, 27, 250));
             gift.AddDirectly(new Candy("Красная Шапочка", 15, 10, 80));
-            gift.AddDirectly(new OtherSweet("Тульский пряник", 140, 50, 400, "Пряники"));
+            gift.AddDirectly(new Gingerbread("Тульский пряник", 140, 50, 400));
 
             while (true)
             {

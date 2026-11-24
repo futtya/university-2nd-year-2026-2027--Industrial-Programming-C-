@@ -37,33 +37,17 @@ namespace lab5csharp
         {
             Console.Write("""
                 1.Добавить конфету
-                2.Добавить что-то другое
+                2.Добавить пряник
+                3.Добавить шоколад
+                4.Добавить зефир
                 Ввод: 
                 """);
             int choice = int.Parse(Console.ReadLine());
-            switch (choice)
+            if (choice < 1 || choice > 4)
             {
-                case 1: CreateCandy(); break; 
-                case 2: CreateOtherSweet(); break;
-                default: return;
+                return;
             }
-        } 
-        
-        public void CreateCandy()
-        {
-            Console.Write("Название: ");
-            string name = Console.ReadLine();
-            Console.Write("Вес: ");
-            double weight = double.Parse(Console.ReadLine());
-            Console.Write("Сахар: ");
-            int sugar = int.Parse(Console.ReadLine());
-            Console.Write("Калории: ");
-            int calories = int.Parse(Console.ReadLine());
-            sweets.Add(new Candy(name, weight, sugar, calories));
-        }
 
-        public void CreateOtherSweet()
-        {
             Console.Write("Название: ");
             string name = Console.ReadLine();
             Console.Write("Вес: ");
@@ -72,9 +56,16 @@ namespace lab5csharp
             int sugar = int.Parse(Console.ReadLine());
             Console.Write("Калории: ");
             int calories = int.Parse(Console.ReadLine());
-            Console.Write("Категория: ");
-            string Category = Console.ReadLine();
-            sweets.Add(new OtherSweet(name, weight, sugar, calories, Category));
+
+            Sweet sweet = choice switch
+            {
+                1 => new Candy(name, weight, sugar, calories),
+                2 => new Gingerbread(name, weight, sugar, calories),
+                3 => new Chocolate(name, weight, sugar, calories),
+                4 => new Marshmallow(name, weight, sugar, calories),
+                _ => throw new InvalidOperationException("Неверный вид сладости")
+            };
+            sweets.Add(sweet);
         }
 
         public void SortSweets()
