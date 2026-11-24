@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Laba5.Tests/**/*.cs" />
+    <InternalsVisibleTo Include="Laba5.Tests" />
+  </ItemGroup>
+
 </Project>
